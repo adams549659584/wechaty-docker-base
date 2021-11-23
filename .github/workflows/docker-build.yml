@@ -9,7 +9,7 @@ on:
     types: [started]
 
 env:
-  PRODUCT_TAG: adams549659584/wechaty-base:node16.13.0
+  PRODUCT_TAG: adams549659584/wechaty-base:1.0.0
 
 jobs:
   buildDockerImage:
