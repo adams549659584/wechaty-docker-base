@@ -1,4 +1,4 @@
-FROM node:16.13.0-alpine
+FROM node:16.13.0-alpine3.14
 
 # basic tools
 RUN apk update && apk upgrade \
@@ -16,8 +16,9 @@ RUN apk update && apk upgrade \
     figlet \
     jq \
     moreutils \
-    cmake bash git vim \
-    xauth  
+    bash \
+    xauth \
+    && rm -rf /tmp/* /var/cache/apk/* 
 #end
 
 #  set PUPPETEER
@@ -25,6 +26,6 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
     PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 # end 
 
-RUN npm install puppeteer@10.2.0 -g
+RUN npm install puppeteer@11.0.0 -g
 
 RUN export WECHATY_PUPPET=wechaty-puppet-wechat
